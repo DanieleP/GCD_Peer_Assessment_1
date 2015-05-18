@@ -1,4 +1,4 @@
-# Getting and Cleaning Data Peer Assessment 1
+# Getting and Cleaning Data Course Project
 
 ## Introduction
 The purpose of this project is to elaborate and tidy up a dataset 
