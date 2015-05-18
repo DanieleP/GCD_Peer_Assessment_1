@@ -54,7 +54,7 @@ Output is the new data.frame that extracts only the measurements on the mean and
 	Filter <- Filter + 2
 	Output <- select(Output,1:2,Filter)	
 	
-### Uses descriptive activity names to name the activities in the data set
+#### Uses descriptive activity names to name the activities in the data set
 Activity column is converted in character and replaced by the activity names contained
 in activity_labels.txt.	
 	
@@ -64,9 +64,9 @@ in activity_labels.txt.
 	    Output$Activity[Output$Activity == i] <- activity_labels[i]
 	}
 
-### Appropriately labels the data set with descriptive variable names
-The following script removes brackets and replace symbols and shortenings with nouns in
-the variables' labels.
+#### Appropriately labels the data set with descriptive variable names
+The following script edits the variables' labels. It removes brackets, numbers, replaces 
+symbols and shortenings with descriptive nouns.
 
 	names(Output)<-gsub("\\()","",names(Output))
 	names(Output)<-gsub("-"," ",names(Output))
@@ -82,7 +82,7 @@ the variables' labels.
 	names(Output)<-gsub("BodyBody","Body",names(Output))
 	names(Output)<-gsub("[0-9]", "", names(Output))
 
-### Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+#### Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 To generate the new data.frame, run_analysis uses the dplyr package's aggregate
 function, that combines Subjects and Activities and calculates their mean on each variable.
 
