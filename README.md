@@ -4,9 +4,9 @@
 The purpose of this project is to elaborate and tidy up a dataset 
 on [Human Activity Recognition Using Smartphones] (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
-A full description of the variables can be found in the [CodeBook] (https://github.com/DanieleP/GCD_Peer_Assessment_1/CodeBook.md)
+A full description of the variables can be found in the [CodeBook] (https://github.com/DanieleP/GCD_Peer_Assessment_1/blob/master/CodeBook.md)
 
-[Here] (https://github.com/DanieleP/GCD_Peer_Assessment_1/run_analysis.R) you can find the full script that elaborates and tides the dataset.
+[Here] (https://github.com/DanieleP/GCD_Peer_Assessment_1/blob/master/run_analysis.R) you can find the full script that elaborates and tides the dataset.
 
 ## Run Analysis Script
 Run Analysis Script does the following:  
