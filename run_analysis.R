@@ -16,8 +16,6 @@ XtestFormatted <- cbind(subject_test, ytest, Xtest)
 XtrainFormatted <- cbind(subject_train,ytrain,Xtrain)
 
 ## Merge
-XtestFormatted <- cbind(subject_test, ytest, Xtest)
-XtrainFormatted <- cbind(subject_train,ytrain,Xtrain)
 RawOutput <- rbind(XtestFormatted,XtrainFormatted)
 colnames(RawOutput) <- c("Subject","Activity", features)
 
@@ -40,18 +38,22 @@ for (i in 1:6){
 }
 
 ## Appropriately labels the data set with descriptive variable names.
+n <- names(Output)
 names(Output)<-gsub("\\()","",names(Output))
 names(Output)<-gsub("-"," ",names(Output))
+names(Output)<-gsub("[1:10]","",names(Output))
 names(Output)<-gsub("mean","Mean",names(Output))
 names(Output)<-gsub("correlation","Correlation",names(Output))
 names(Output)<-gsub(" std"," Standard Deviation",names(Output))
-names(Output)<-gsub("^t", "Time", names(Output))
-names(Output)<-gsub("^f", "Frequency", names(Output))
+names(Output)<-gsub(" t", "Time", names(Output))
+names(Output)<-gsub(" f", "Frequency", names(Output))
 names(Output)<-gsub("([Aa]cc)", "Acceleration", names(Output))
 names(Output)<-gsub("([Mm]ag)", "Magnitude", names(Output))
 names(Output)<-gsub("(gravity)","Gravity",names(Output))
 names(Output)<-gsub("([Gg]yro)", "Gyroscope", names(Output))
 names(Output)<-gsub("BodyBody","Body",names(Output))
+names(Output)<-gsub("[0-9]", "", names(Output))
+#names(Output)<-gsub("(^[[:space:]]+|[[:space:]]+$)", "", names(Output))
 
 ## From the data set in step 4, creates a second, independent tidy data set 
 ## with the average of each variable for each activity and each subject.

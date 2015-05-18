@@ -4,7 +4,7 @@
 The purpose of this project is to elaborate and tidy up a dataset 
 on [Human Activity Recognition Using Smartphones] (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
-A full description of the variables can be found in the [CodeBook] (https://github.com/DanieleP/GCD_Peer_Assessment_1/CodeBook.MD)
+A full description of the variables can be found in the [CodeBook] (https://github.com/DanieleP/GCD_Peer_Assessment_1/CodeBook.md)
 
 [Here] (https://github.com/DanieleP/GCD_Peer_Assessment_1/run_analysis.R) you can find the full script that elaborates and tides the dataset.
 
@@ -64,8 +64,8 @@ in activity_labels.txt.
 	    Output$Activity[Output$Activity == i] <- activity_labels[i]
 	}
 
-### Appropriately labels the data set with descriptive variable names. 
-The following script removes brackets and replace symbols and shortenings with nouns from
+### Appropriately labels the data set with descriptive variable names
+The following script removes brackets and replace symbols and shortenings with nouns in
 the variables' labels.
 
 	names(Output)<-gsub("\\()","",names(Output))
@@ -73,17 +73,17 @@ the variables' labels.
 	names(Output)<-gsub("mean","Mean",names(Output))
 	names(Output)<-gsub("correlation","Correlation",names(Output))
 	names(Output)<-gsub(" std"," Standard Deviation",names(Output))
-	names(Output)<-gsub("^t", "Time", names(Output))
-	names(Output)<-gsub("^f", "Frequency", names(Output))
+	names(Output)<-gsub(" t", "Time", names(Output))
+	names(Output)<-gsub(" f", "Frequency", names(Output))
 	names(Output)<-gsub("([Aa]cc)", "Acceleration", names(Output))
 	names(Output)<-gsub("([Mm]ag)", "Magnitude", names(Output))
 	names(Output)<-gsub("(gravity)","Gravity",names(Output))
 	names(Output)<-gsub("([Gg]yro)", "Gyroscope", names(Output))
 	names(Output)<-gsub("BodyBody","Body",names(Output))
+	names(Output)<-gsub("[0-9]", "", names(Output))
 
-### Creates a second, independent tidy data set with the average of each variable for 
-each activity and each subject.
-To generate the new data.frame, run_analysis relies on the dplyr package's aggregate
+### Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+To generate the new data.frame, run_analysis uses the dplyr package's aggregate
 function, that combines Subjects and Activities and calculates their mean on each variable.
 
 	Output2 <- aggregate(. ~Subject + Activity, Output, mean)
